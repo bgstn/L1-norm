@@ -1,0 +1,16 @@
+src = "1111000000  0100100101  0000011110  0111111111  1011111111"
+number = src.split()
+
+counts = {}
+for i in range(4):
+    for j in range(i+1,5):
+        count = 0
+        for bit in bin(int(number[i],base=2) ^ int(number[j],base=2)).split("b")[1]:
+            if bit == "1":
+                count += 1
+        if count in counts:
+            counts[count] += 1
+        else:
+            counts[count] = 1
+            
+print(counts)
